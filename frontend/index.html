@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amazon Product Scraper</title>
+  <link rel="stylesheet" href="src/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Amazon Product Scraper</h1>
+      <p>Extract product listings from Amazon search results</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="search-section">
+      <div class="search-box">
+        <input 
+          type="text" 
+          id="keyword" 
+          placeholder="Enter product keyword to search..." 
+          aria-label="Search keyword"
+        >
+        <button id="scrape-button" type="button">
+          <i class="fas fa-search"></i> Search
+        </button>
+      </div>
+      <div class="examples">
+        <p>Try examples: <span class="example-tag">headphones</span> <span class="example-tag">laptop</span> <span class="example-tag">gaming mouse</span></p>
+      </div>
+    </section>
+
+    <section class="loading-section" id="loading-section">
+      <div class="loader"></div>
+      <p>Scraping products from Amazon...</p>
+      <p class="small">This may take a few seconds</p>
+    </section>
+
+    <section class="error-section" id="error-section">
+      <div class="error-icon">
+        <i class="fas fa-exclamation-circle"></i>
+      </div>
+      <h3>Error Occurred</h3>
+      <p id="error-message">Unable to scrape products. Please try again.</p>
+    </section>
+
+    <section class="results-section" id="results-section">
+      <div class="results-header">
+        <h2>Search Results <span id="keyword-display"></span></h2>
+        <p>Found <span id="results-count">0</span> products</p>
+      </div>
+
+      <div class="products-grid" id="products-container">
+        <!-- Products will be added here dynamically -->
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>Created for educational purposes only. Not affiliated with Amazon.</p>
+    </div>
+  </footer>
+
+  <!-- Product card template -->
+  <template id="product-template">
+    <div class="product-card">
+      <div class="product-image">
+        <img src="" alt="Product image">
+      </div>
+      <div class="product-info">
+        <h3 class="product-title"></h3>
+        <div class="product-rating">
+          <div class="stars"></div>
+          <span class="review-count"></span>
+        </div>
+        <div class="product-price"></div>
+        <a href="" class="view-button" target="_blank">
+          View on Amazon
+        </a>
+      </div>
+    </div>
+  </template>
+
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>
